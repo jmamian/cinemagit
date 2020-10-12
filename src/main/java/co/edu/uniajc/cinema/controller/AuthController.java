@@ -23,12 +23,11 @@ public class AuthController {
 	        @ApiResponse(code = 500, message = "service error")
 	    })
 	@GetMapping("/token")
-    public String getToken(@RequestParam("username") final String username, @RequestParam("password") final String password) {
-		String token = Auth_serv.login(username, password);
-		if (StringUtils.isEmpty(token)) {
-			return "no token found!";
-		}
-	}}
+    public String getToken(@RequestParam("username") final String username, @RequestParam("password") final String password){
+       String token= Auth_serv.login(username,password);
+       if(StringUtils.isEmpty(token)){
+           return "no token found!";
+       }
        return token;
     }
 
